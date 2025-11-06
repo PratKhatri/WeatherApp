@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Weather Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-color: {% if weather %}{{ weather.bg_color }}{% else %}#f0f8ff{% endif %};">
+
+<div class="container">
+    <h1 class="app-title">Real-Time Weather Forecast</h1>
+
+    <form class="form-section" method="POST">
+        <input type="text" name="city" class="input-field" placeholder="Enter city" value="{{ city }}">
+        <select name="recent_city" class="input-field">
+            <option value="">Select Recent</option>
+            {% for c in recent %}
+            <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select>
+        <select name="unit" class="input-field">
+            <option value="F" {% if unit=="F" %}selected{% endif %}>°F</option>
+            <option value="C" {% if unit=="C" %}selected{% endif %}>°C</option>
+        </select>
+        <button class="btn" type="submit">Get Weather</button>
+    </form>
+
+    {% if weather %}
+    <div class="weather-card">
+        <div class="main-info">
+            <img src="{{ weather.icon_url }}" alt="Weather Icon" class="weather-icon">
+            <div>
+                <div class="temp">{{ weather.temperature }}°{{ weather.unit }}</div>
+                <div class="desc">{{ weather.description }} {{ weather.emoji }}</div>
+            </div>
+        </div>
+
+        <div class="details">
+            <p>Humidity: {{ weather.humidity }}%</p>
+            <p>Wind: {{ weather.wind_speed }} m/s</p>
+            <p>Feels Like: {{ weather.feels_like }}°{{ weather.unit }}</p>
+            <p>Min: {{ weather.temp_min }}°{{ weather.unit }} | Max: {{ weather.temp_max }}°{{ weather.unit }}</p>
+            <p>Sunrise: {{ weather.sunrise }} | Sunset: {{ weather.sunset }}</p>
+            <p>Local Time: {{ weather.local_time }}</p>
+        </div>
+
+        <div class="forecast horizontal-forecast">
+            <h3>Next 5 Forecasts</h3>
+            <div class="forecast-container">
+                {% for dt, temp, icon_url in forecast %}
+                <div class="forecast-card">
+                    <p>{{ dt }}</p>
+                    <img src="{{ icon_url }}" alt="Icon" class="forecast-icon">
+                    <p>{{ temp }}°{{ weather.unit }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
