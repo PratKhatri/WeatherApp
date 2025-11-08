@@ -49,9 +49,9 @@ cd weather-app
 pip3 install flask requests
 ```
 
-3. Get an API key from OpenWeatherApp and replace the API_KET in app.py:
+3. Get an API key from OpenWeatherApp and replace the `API_KEY` in `app.py`:
 
-```bash
+```python
 API_KEY = "YOUR_API_KEY"
 ```
 
@@ -61,6 +61,6 @@ API_KEY = "YOUR_API_KEY"
 python3 app.py
 ```
 
-5. Open your browser and go to https://127.0.0.1:5000/
+5. Open your browser and go to `https://127.0.0.1:5000/`
 
 
