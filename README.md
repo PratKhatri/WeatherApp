@@ -41,3 +41,26 @@ A simple and interactive web application built with **Flask** that allows users 
 ```bash
 git clone https://github.com/yourusername/weather-app.git
 cd weather-app
+```
+
+2. Install dependencies (preferably in a virtual environment):
+
+```bash
+pip3 install flask requests
+```
+
+3. Get an API key from OpenWeatherApp and replace the API_KET in app.py:
+
+```bash
+API_KEY = "YOUR_API_KEY"
+```
+
+4. Run the app:
+
+```bash
+python3 app.py
+```
+
+5. Open your browser and go to https://127.0.0.1:5000/
+
+
