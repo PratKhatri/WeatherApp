@@ -21,7 +21,7 @@ A simple and interactive web application built with **Flask** that allows users 
 
 ## Demo
 
-![Screenshot](screenshot.png)  
+![Screenshot](file:///var/folders/y_/_t7yl29s4h70d4rh9zg6s8fm0000gn/T/TemporaryItems/NSIRD_screencaptureui_KsxuAt/Screenshot%202025-11-08%20at%201.58.59%E2%80%AFPM.png)  
 *(Add your app screenshot here)*
 
 ---
